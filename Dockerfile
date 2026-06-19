@@ -19,6 +19,8 @@ FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
 
 # Run as non-root user for container security hardening
+# Install fontconfig and fonts required for Java AWT and JFreeChart PDF generation
+RUN apk add --no-cache fontconfig ttf-dejavu
 RUN addgroup -S spring && adduser -S spring -G spring
 USER spring:spring
 
@@ -28,4 +30,4 @@ EXPOSE 8080
 
 ENV SPRING_PROFILES_ACTIVE=prod
 
-ENTRYPOINT ["java", "-Djava.net.preferIPv4Stack=true", "-Duser.timezone=Asia/Kolkata", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-Djava.awt.headless=true", "-Djava.net.preferIPv4Stack=true", "-Duser.timezone=Asia/Kolkata", "-jar", "app.jar"]
