@@ -1,0 +1,236 @@
+.dashboard-page-container {
+  padding: 1.5rem 0;
+}
+
+.section-title {
+  font-family: var(--font-headings);
+  color: var(--neutral-slate-dark);
+  font-size: 1.25rem;
+  font-weight: 750;
+  margin-bottom: 1.25rem;
+}
+
+.analytics-section {
+  margin-bottom: 2.5rem;
+}
+
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+@media (max-width: 1024px) {
+  .analytics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .analytics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Distribution details card */
+.distribution-row {
+  margin-top: 1.5rem;
+}
+
+.distribution-card {
+  background: var(--neutral-white);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-gray);
+  box-shadow: var(--shadow-soft);
+  padding: 1.5rem;
+}
+
+.distribution-title {
+  font-family: var(--font-headings);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--neutral-slate-dark);
+  margin-bottom: 1.2rem;
+}
+
+.distribution-bar-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem 2.5rem;
+}
+
+@media (max-width: 768px) {
+  .distribution-bar-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.dist-bar-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.dist-label-row {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-primary);
+  font-size: 0.85rem;
+}
+
+.dist-category {
+  font-weight: 600;
+  color: var(--neutral-slate-medium);
+}
+
+.dist-count {
+  font-weight: 700;
+  color: var(--primary-teal-dark);
+}
+
+.dist-progress-track {
+  height: 8px;
+  background-color: var(--neutral-slate-light);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.dist-progress-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 1s ease-out;
+}
+
+.progress-underweight {
+  background-color: var(--status-warning);
+}
+
+.progress-normal {
+  background-color: var(--status-normal);
+}
+
+.progress-overweight {
+  background-color: var(--status-warning);
+}
+
+.progress-obese {
+  background-color: var(--status-danger);
+}
+
+/* Directory Section styling */
+.directory-section {
+  margin-top: 2rem;
+}
+
+.directory-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .directory-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  
+  .directory-header-row .search-bar-wrapper {
+    width: 100%;
+  }
+}
+
+/* Undo Toast styling */
+.undo-toast-banner {
+  position: fixed;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background-color: var(--neutral-slate-dark);
+  color: var(--neutral-white);
+  border-radius: var(--radius-md);
+  padding: 0.9rem 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-family: var(--font-primary);
+  font-size: 0.9rem;
+  animation: toast-slide-down 0.3s ease-out;
+  border-left: 4px solid var(--primary-teal-medium);
+  min-width: 380px;
+  max-width: 90%;
+  justify-content: space-between;
+}
+
+@keyframes toast-slide-down {
+  from {
+    top: -50px;
+    opacity: 0;
+  }
+  to {
+    top: 1.5rem;
+    opacity: 1;
+  }
+}
+
+.toast-content {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.toast-icon {
+  font-size: 1.2rem;
+}
+
+.toast-text {
+  font-weight: 500;
+}
+
+.toast-undo-btn {
+  background-color: var(--primary-teal-medium);
+  border: none;
+  color: var(--neutral-white);
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.toast-undo-btn:hover {
+  background-color: var(--primary-teal-dark);
+}
+
+/* Analytics Skeleton */
+.analytics-skeleton-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.skeleton-card {
+  height: 90px;
+  background: var(--neutral-slate-light);
+  border: 1px solid var(--border-gray);
+  border-radius: var(--radius-md);
+  animation: card-pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes card-pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}

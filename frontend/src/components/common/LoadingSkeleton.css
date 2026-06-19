@@ -1,0 +1,31 @@
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #F1F5F9 25%,
+    #E2E8F0 37%,
+    #F1F5F9 63%
+  );
+  background-size: 400% 100%;
+  animation: skeleton-pulse 1.4s ease infinite;
+}
+
+.skeleton-block {
+  border-radius: var(--radius-sm);
+}
+
+.skeleton-circle {
+  border-radius: 50%;
+}
+
+.skeleton-card {
+  border-radius: var(--radius-md);
+}
+
+@keyframes skeleton-pulse {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

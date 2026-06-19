@@ -1,0 +1,222 @@
+.patient-table-container {
+  background: var(--neutral-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border-gray);
+  overflow: hidden;
+  margin-top: 1.5rem;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.patient-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
+}
+
+.patient-table th {
+  background: var(--neutral-slate-light);
+  color: var(--neutral-slate-medium);
+  font-weight: 600;
+  padding: 1rem 1.5rem;
+  border-bottom: 1.5px solid var(--border-gray);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.patient-table td {
+  padding: 1.2rem 1.5rem;
+  border-bottom: 1px solid var(--border-gray);
+  color: var(--neutral-slate-dark);
+  vertical-align: middle;
+}
+
+.patient-row-hover:hover {
+  background-color: rgba(20, 184, 166, 0.02);
+}
+
+.patient-name-cell {
+  cursor: pointer;
+}
+
+.patient-avatar-name {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.name-avatar {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  background: var(--primary-teal-light);
+  color: var(--primary-teal-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-family: var(--font-headings);
+  font-size: 0.95rem;
+  border: 1px solid rgba(15, 118, 110, 0.15);
+}
+
+.name-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.patient-name {
+  font-weight: 600;
+  color: var(--primary-teal-dark);
+  font-family: var(--font-headings);
+}
+
+.patient-row-hover:hover .patient-name {
+  text-decoration: underline;
+}
+
+.patient-meta-date {
+  font-size: 0.75rem;
+  color: var(--neutral-slate-medium);
+  margin-top: 0.1rem;
+}
+
+.gender-capitalize {
+  text-transform: capitalize;
+}
+
+.bmi-value-highlight {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--neutral-slate-dark);
+}
+
+.who-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1.5px solid transparent;
+}
+
+.action-buttons-group {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-action {
+  padding: 0.35rem 0.75rem !important;
+  font-size: 0.8rem !important;
+  min-height: auto !important;
+}
+
+.btn-delete-patient {
+  background-color: transparent !important;
+  border: 1px solid var(--status-danger) !important;
+  color: var(--status-danger) !important;
+  transition: var(--transition-fast) !important;
+}
+
+.btn-delete-patient:hover {
+  background-color: var(--status-danger) !important;
+  color: var(--neutral-white) !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-muted {
+  color: var(--neutral-slate-medium);
+  font-style: italic;
+  font-size: 0.85rem;
+}
+
+.empty-table-cell {
+  padding: 4rem 1.5rem !important;
+  text-align: center;
+}
+
+.empty-table-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.empty-icon {
+  font-size: 2.5rem;
+  opacity: 0.6;
+}
+
+.empty-text {
+  color: var(--neutral-slate-medium);
+  font-weight: 500;
+}
+
+/* Pagination Styling */
+.pagination-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: var(--neutral-slate-light);
+  border-top: 1px solid var(--border-gray);
+  font-family: var(--font-primary);
+}
+
+.pagination-info {
+  font-size: 0.85rem;
+  color: var(--neutral-slate-medium);
+}
+
+.pagination-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.pagination-buttons button {
+  padding: 0.4rem 1rem !important;
+  font-size: 0.85rem !important;
+  min-height: auto !important;
+}
+
+/* Loading state */
+.table-loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 2rem;
+  background: var(--neutral-white);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-gray);
+  gap: 1rem;
+}
+
+.table-spinner {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 3px solid var(--border-gray);
+  border-top-color: var(--primary-teal-dark);
+  border-radius: 50%;
+  animation: table-spin 1s infinite linear;
+}
+
+@keyframes table-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.healthtrack.bmi.integration.BmiIntegrationTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.26 s -- in com.healthtrack.bmi.integration.BmiIntegrationTest

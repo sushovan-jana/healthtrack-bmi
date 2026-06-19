@@ -1,0 +1,74 @@
+.bmi-trend-chart-wrapper {
+  background: var(--neutral-white);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-gray);
+  box-shadow: var(--shadow-soft);
+  padding: 1.5rem;
+}
+
+.chart-title {
+  font-family: var(--font-headings);
+  color: var(--neutral-slate-dark);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.chart-container {
+  margin-top: 1rem;
+}
+
+/* Custom Tooltip styling */
+.chart-custom-tooltip {
+  background: var(--neutral-slate-dark);
+  color: var(--neutral-white);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-primary);
+  font-size: 0.8rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tooltip-date {
+  font-weight: 700;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 0.25rem;
+  margin-bottom: 0.4rem;
+  color: var(--primary-teal-medium);
+}
+
+.tooltip-details p {
+  margin: 0.2rem 0;
+}
+
+.tooltip-value {
+  color: var(--primary-teal-medium);
+  font-weight: 700;
+}
+
+.tooltip-class {
+  margin-top: 0.3rem !important;
+  font-size: 0.75rem;
+  opacity: 0.9;
+}
+
+/* Empty State */
+.trend-chart-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--neutral-white);
+  border: 1px dashed var(--border-gray);
+  border-radius: var(--radius-md);
+  padding: 4rem 2rem;
+  text-align: center;
+  color: var(--neutral-slate-medium);
+}
+
+.chart-empty-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}

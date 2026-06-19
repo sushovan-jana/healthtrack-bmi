@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+  flyway:
+    enabled: true
+    clean-disabled: false
+
+healthtrack:
+  jwt:
+    secret: 9a2f982181283c8a32d182390f2390a1d9c2830f2930210e39281a30fde20e10
+    expiration-ms: 86400000
+    cookie-secure: false
+  cors:
+    allowed-origins: http://localhost:3000,http://localhost:5173

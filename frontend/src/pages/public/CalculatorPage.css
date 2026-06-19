@@ -1,0 +1,244 @@
+.calculator-page-container {
+  padding: 3rem 1.5rem;
+}
+
+.calculator-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 2.5rem auto;
+}
+
+.calculator-header h1 {
+  font-family: var(--font-headings);
+  font-size: 2.5rem;
+  color: var(--primary-teal-dark);
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.calculator-lead {
+  font-family: var(--font-primary);
+  font-size: 1.05rem;
+  color: var(--neutral-slate-medium);
+}
+
+.calculator-layout-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .calculator-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.calculator-form-card {
+  padding: 2rem;
+}
+
+.unit-toggle-row {
+  display: flex;
+  background: var(--neutral-slate-light);
+  border: 1px solid var(--border-gray);
+  padding: 0.25rem;
+  border-radius: 50px;
+  margin-bottom: 1.8rem;
+}
+
+.toggle-btn {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 0.6rem 1rem;
+  border-radius: 50px;
+  font-family: var(--font-headings);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--neutral-slate-medium);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.toggle-btn.active {
+  background: var(--primary-teal-dark);
+  color: var(--neutral-white);
+  box-shadow: var(--shadow-soft);
+}
+
+.calc-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-section-title {
+  font-family: var(--font-headings);
+  color: var(--neutral-slate-dark);
+  font-size: 1rem;
+  font-weight: 700;
+  border-bottom: 1px solid var(--border-gray);
+  padding-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-group-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+@media (max-width: 600px) {
+  .form-group-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* Imperial Height alignment */
+.form-group-row-imperial {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 1.25rem;
+}
+
+@media (max-width: 600px) {
+  .form-group-row-imperial {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.imperial-height-group {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.height-sub-input {
+  flex: 1;
+}
+
+/* Custom Select styling */
+.custom-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.custom-input-label {
+  font-family: var(--font-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--neutral-slate-medium);
+}
+
+.custom-select {
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--border-gray);
+  border-radius: var(--radius-sm);
+  background-color: var(--neutral-white);
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
+  color: var(--neutral-slate-dark);
+  outline: none;
+  transition: border-color var(--transition-fast);
+  height: calc(2.4rem + 2px); /* Standardize select height */
+}
+
+.custom-select:focus {
+  border-color: var(--primary-teal-medium);
+}
+
+.submit-button-row {
+  margin-top: 1rem;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.calc-api-error {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: var(--status-danger);
+  padding: 0.8rem 1rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-primary);
+  font-size: 0.9rem;
+}
+
+.error-icon {
+  font-size: 1.2rem;
+}
+
+/* Result Column styling */
+.results-panel {
+  height: 100%;
+}
+
+.result-outer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.result-title {
+  font-family: var(--font-headings);
+  font-size: 1.2rem;
+  color: var(--primary-teal-dark);
+  font-weight: 700;
+}
+
+.patient-success-notice {
+  background: var(--primary-teal-light);
+  border: 1px solid rgba(15, 118, 110, 0.2);
+  padding: 0.9rem 1.2rem;
+  border-radius: var(--radius-md);
+  font-family: var(--font-primary);
+  font-size: 0.85rem;
+  color: var(--primary-teal-dark);
+  line-height: 1.4;
+}
+
+.no-result-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem;
+  border: 2px dashed var(--border-gray);
+  border-radius: var(--radius-md);
+  text-align: center;
+  background: var(--neutral-slate-light);
+  color: var(--neutral-slate-medium);
+  height: 100%;
+}
+
+.no-result-icon {
+  font-size: 3rem;
+  opacity: 0.5;
+  margin-bottom: 1.2rem;
+}
+
+.no-result-card h4 {
+  font-family: var(--font-headings);
+  font-size: 1.25rem;
+  color: var(--neutral-slate-dark);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.no-result-card p {
+  font-family: var(--font-primary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  max-width: 320px;
+}

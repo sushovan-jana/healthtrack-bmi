@@ -1,0 +1,59 @@
+.input-group-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  width: 100%;
+}
+
+.input-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--neutral-slate-medium);
+  user-select: none;
+}
+
+.required-asterisk {
+  color: var(--status-danger);
+}
+
+.custom-input {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  font-family: var(--font-primary);
+  font-size: 0.9rem;
+  border: 1px solid var(--border-gray);
+  border-radius: var(--radius-sm);
+  background-color: var(--neutral-white);
+  color: var(--neutral-slate-dark);
+  transition: all var(--transition-fast);
+  outline: none;
+}
+
+.custom-input:focus {
+  border-color: var(--primary-teal-medium);
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.15);
+}
+
+.custom-input::placeholder {
+  color: #94A3B8;
+}
+
+/* Error States */
+.has-error .custom-input {
+  border-color: var(--status-danger);
+}
+
+.has-error .custom-input:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+.has-error .input-label {
+  color: var(--status-danger);
+}
+
+.input-error-msg {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--status-danger);
+  margin-top: 0.1rem;
+}

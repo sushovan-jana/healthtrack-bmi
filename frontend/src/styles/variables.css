@@ -1,0 +1,32 @@
+:root {
+  /* Color Tokens */
+  --primary-teal-dark: #0F766E;
+  --primary-teal-medium: #14B8A6;
+  --primary-teal-light: #F0FDFA;
+  --neutral-slate-dark: #0F172A;
+  --neutral-slate-medium: #475569;
+  --neutral-slate-light: #F8FAFC;
+  --neutral-white: #FFFFFF;
+  --border-gray: #E2E8F0;
+
+  /* WHO Category Indicators */
+  --status-normal: #10B981;
+  --status-warning: #F59E0B;
+  --status-danger: #EF4444;
+
+  /* Typography */
+  --font-primary: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-headings: 'Outfit', 'Inter', system-ui, sans-serif;
+
+  /* Borders & Shadows */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-premium: 0 10px 15px -3px rgba(15, 118, 110, 0.05), 0 4px 6px -4px rgba(15, 118, 110, 0.05);
+  --shadow-inset: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+}

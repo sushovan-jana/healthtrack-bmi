@@ -1,0 +1,54 @@
+server:
+  port: 8080
+  error:
+    include-message: always
+
+spring:
+  application:
+    name: healthtrack-bmi
+
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/healthtrack}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate # Flyway handles DDL schemas
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false # Recommended production performance practice
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    baseline-version: 0
+
+# Spring Actuator Endpoint Configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+# Custom security configuration properties
+healthtrack:
+  jwt:
+    # 256-bit secure key for signing tokens (forces boot failure if environment var is missing)
+    secret: ${JWT_SECRET}
+    # Token expiration time: 24 hours (in milliseconds)
+    expiration-ms: ${JWT_EXPIRATION_MS:86400000}
+  cors:
+    # Declares production configuration for allowed origins (read dynamically by SecurityConfig)
+    allowed-origins: http://localhost:3000,http://localhost:5173,http://127.0.0.1:3000,http://127.0.0.1:5173
+  clinic:
+    name: SwasthyaLipi
+    doctor-name: Dr. Pulak Kumar Jana
+    address: 54 Phool Bagan Road, Kolkata - 700086
+    phones:
+      - "8334008000"
+      - "9681231942"
+    email: swasthyalipi@swasthyalipi.com

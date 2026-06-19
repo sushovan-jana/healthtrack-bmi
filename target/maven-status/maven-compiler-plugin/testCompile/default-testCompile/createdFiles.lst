@@ -1,0 +1,4 @@
+com\healthtrack\bmi\util\BmiCalculatorTest.class
+com\healthtrack\bmi\integration\BmiIntegrationTest.class
+com\healthtrack\bmi\service\BmiServiceTest.class
+com\healthtrack\bmi\service\AuthServiceTest.class

@@ -1,0 +1,228 @@
+.doctor-layout-wrapper {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: 100vh;
+  background-color: var(--neutral-slate-light);
+}
+
+.doctor-sidebar {
+  background-color: var(--neutral-white);
+  border-right: 1px solid var(--border-gray);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  padding: 1.5rem;
+}
+
+.sidebar-header {
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  font-family: var(--font-headings);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--primary-teal-dark);
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  color: var(--neutral-slate-medium);
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.menu-item:hover {
+  background-color: var(--primary-teal-light);
+  color: var(--primary-teal-dark);
+}
+
+.menu-item.active {
+  background-color: var(--primary-teal-dark);
+  color: var(--neutral-white);
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-top: 1px solid var(--border-gray);
+  padding-top: 1.5rem;
+}
+
+.doctor-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--primary-teal-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  border: 1px solid #99F6E4;
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.doc-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--neutral-slate-dark);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.doc-email {
+  font-size: 0.8rem;
+  color: var(--neutral-slate-medium);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.logout-btn {
+  background-color: transparent;
+  border: 1px solid var(--border-gray);
+  color: #EF4444;
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.logout-btn:hover {
+  background-color: #FEF2F2;
+  border-color: #FCA5A5;
+}
+
+.doctor-content-area {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.doctor-content-header {
+  background-color: var(--neutral-white);
+  border-bottom: 1px solid var(--border-gray);
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-greeting h2 {
+  font-size: 1.5rem;
+}
+
+.header-greeting p {
+  font-size: 0.85rem;
+  color: var(--neutral-slate-medium);
+}
+
+.header-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--neutral-slate-medium);
+  background-color: var(--neutral-slate-light);
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid var(--border-gray);
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.status-indicator.online {
+  background-color: var(--status-normal);
+  box-shadow: 0 0 8px var(--status-normal);
+}
+
+.doctor-main-content {
+  padding: 2rem;
+  flex: 1;
+}
+
+@media (max-width: 1024px) {
+  .doctor-layout-wrapper {
+    grid-template-columns: 1fr;
+  }
+  
+  .doctor-sidebar {
+    height: auto;
+    position: static;
+    border-right: none;
+    border-bottom: 1px solid var(--border-gray);
+    padding: 1rem 1.5rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .sidebar-header {
+    margin-bottom: 0;
+  }
+
+  .sidebar-menu {
+    flex-direction: row;
+    flex: 0;
+    gap: 1rem;
+  }
+
+  .sidebar-footer {
+    display: none;
+  }
+
+  .doctor-content-area {
+    height: auto;
+    overflow-y: visible;
+  }
+}
