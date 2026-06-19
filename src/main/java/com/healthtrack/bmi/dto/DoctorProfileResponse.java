@@ -17,4 +17,6 @@ public class DoctorProfileResponse {
     private String name;
     private Instant createdAt;
     private Instant updatedAt;
+    private String token; // JWT token returned on login/register for localStorage auth
 }
+

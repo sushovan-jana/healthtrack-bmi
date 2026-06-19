@@ -38,6 +38,7 @@ public class AuthController {
         DoctorProfileResponse profile = DoctorProfileResponse.builder()
                 .email(result.getEmail())
                 .name(result.getName())
+                .token(result.getToken()) // Return token for localStorage fallback
                 .build();
 
         return ResponseEntity.status(HttpStatus.CREATED).body(profile);
@@ -54,6 +55,7 @@ public class AuthController {
         DoctorProfileResponse profile = DoctorProfileResponse.builder()
                 .email(result.getEmail())
                 .name(result.getName())
+                .token(result.getToken()) // Return token for localStorage fallback
                 .build();
 
         return ResponseEntity.ok(profile);

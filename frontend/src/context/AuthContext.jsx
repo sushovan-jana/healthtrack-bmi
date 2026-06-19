@@ -8,6 +8,12 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   const checkSession = async () => {
+    // If no token in localStorage, skip network call — user is not logged in
+    const token = localStorage.getItem('jwt-token');
+    if (!token) {
+      setLoading(false);
+      return;
+    }
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
     try {
@@ -17,6 +23,7 @@ export const AuthProvider = ({ children }) => {
       setUser(response.data);
     } catch (error) {
       setUser(null);
+      localStorage.removeItem('jwt-token'); // Clear invalid token
     } finally {
       clearTimeout(timeoutId);
       setLoading(false);
@@ -29,6 +36,7 @@ export const AuthProvider = ({ children }) => {
     // Listen for unauthorized interceptor events
     const handleUnauthorized = () => {
       setUser(null);
+      localStorage.removeItem('jwt-token');
     };
 
     window.addEventListener('auth-unauthorized', handleUnauthorized);
@@ -41,6 +49,10 @@ export const AuthProvider = ({ children }) => {
     setLoading(true);
     try {
       const response = await apiClient.post('/auth/login', { email, password });
+      // Store JWT in localStorage for cross-domain Bearer token auth
+      if (response.data.token) {
+        localStorage.setItem('jwt-token', response.data.token);
+      }
       setUser(response.data);
       return response.data;
     } catch (error) {
@@ -55,6 +67,10 @@ export const AuthProvider = ({ children }) => {
     setLoading(true);
     try {
       const response = await apiClient.post('/auth/register', { email, password, name });
+      // Store JWT in localStorage for cross-domain Bearer token auth
+      if (response.data.token) {
+        localStorage.setItem('jwt-token', response.data.token);
+      }
       setUser(response.data);
       return response.data;
     } catch (error) {
@@ -73,6 +89,7 @@ export const AuthProvider = ({ children }) => {
       console.error('Logout error', error);
     } finally {
       setUser(null);
+      localStorage.removeItem('jwt-token'); // Clear token on logout
       setLoading(false);
     }
   };

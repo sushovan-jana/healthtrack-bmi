@@ -9,6 +9,15 @@ const apiClient = axios.create({
   },
 });
 
+// Request interceptor: attach JWT from localStorage as Authorization header (cross-domain fallback)
+apiClient.interceptors.request.use((config) => {
+  const token = localStorage.getItem('jwt-token');
+  if (token) {
+    config.headers['Authorization'] = `Bearer ${token}`;
+  }
+  return config;
+});
+
 // Response interceptor to handle session expiration or global errors
 apiClient.interceptors.response.use(
   (response) => response,
@@ -32,3 +41,4 @@ apiClient.interceptors.response.use(
 );
 
 export default apiClient;
+

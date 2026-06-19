@@ -39,15 +39,22 @@ public class JwtUtils {
     }
 
     /**
-     * Extracts the JWT token from request cookies.
+     * Extracts the JWT token from request cookies or Authorization Bearer header.
+     * Cookie takes priority; Authorization header is used as fallback for cross-domain requests.
      */
     public String resolveToken(HttpServletRequest request) {
+        // 1. Try cookie first (same-domain / SameSite=None)
         if (request.getCookies() != null) {
             for (Cookie cookie : request.getCookies()) {
                 if (COOKIE_NAME.equals(cookie.getName())) {
                     return cookie.getValue();
                 }
             }
+        }
+        // 2. Fallback: Authorization: Bearer <token> header (cross-domain localStorage approach)
+        String bearerHeader = request.getHeader("Authorization");
+        if (bearerHeader != null && bearerHeader.startsWith("Bearer ")) {
+            return bearerHeader.substring(7);
         }
         return null;
     }
