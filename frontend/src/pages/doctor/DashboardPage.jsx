@@ -65,11 +65,11 @@ const DashboardPage = () => {
   }, [fetchPatients]);
 
   // Search trigger (debounced by SearchBar)
-  const handleSearch = (query) => {
+  const handleSearch = useCallback((query) => {
     setSearchQuery(query);
     setPage(0); // Reset page to 0 on new search
     fetchPatients(query, 0);
-  };
+  }, [fetchPatients]);
 
   // Page trigger
   const handlePageChange = (newPageNum) => {
