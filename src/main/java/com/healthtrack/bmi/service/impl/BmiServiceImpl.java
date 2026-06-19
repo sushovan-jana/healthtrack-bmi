@@ -51,14 +51,14 @@ public class BmiServiceImpl implements BmiService {
                 log.info("Auto-restored soft-deleted patient with phone '{}' on new calculation submission.", patient.getPhoneNumber());
             }
 
-            // Update name and age with latest inputs
+            // Update name, age, and gender with latest inputs
             patient.setName(request.getName());
             patient.setAge(request.getAge());
-
-            // Handle gender mismatch logging without overwriting
+            
             if (!patient.getGender().equalsIgnoreCase(request.getGender())) {
-                log.warn("Gender discrepancy detected for patient phone '{}'. Existing: '{}', Submitted: '{}'",
+                log.info("Updating gender for patient phone '{}' from '{}' to '{}'",
                         patient.getPhoneNumber(), patient.getGender(), request.getGender());
+                patient.setGender(request.getGender());
             }
         } else {
             // Register a new patient in the global namespace
