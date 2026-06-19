@@ -3,6 +3,7 @@ import axios from 'axios';
 const apiClient = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL || '/api',
   withCredentials: true, // Crucial for receiving and sending HttpOnly cookies (JWT)
+  timeout: 30000, // 30 second global timeout — prevents infinite loading on slow Render free tier
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
