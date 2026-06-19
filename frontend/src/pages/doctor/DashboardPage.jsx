@@ -13,6 +13,7 @@ const DashboardPage = () => {
   const [page, setPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
   const [patientsLoading, setPatientsLoading] = useState(false);
+  const [patientsError, setPatientsError] = useState(null);
 
   // Analytics States
   const [analytics, setAnalytics] = useState(null);
@@ -37,6 +38,7 @@ const DashboardPage = () => {
   // Fetch Patients Directory
   const fetchPatients = useCallback(async (query, pageNum) => {
     setPatientsLoading(true);
+    setPatientsError(null);
     try {
       const response = await apiClient.get('/doctors/patients', {
         params: {
@@ -45,10 +47,12 @@ const DashboardPage = () => {
           size: 8, // Page size
         },
       });
-      setPatients(response.data.content);
-      setTotalPages(response.data.totalPages);
+      setPatients(response.data.content || []);
+      setTotalPages(response.data.totalPages || 0);
     } catch (error) {
       console.error('Error fetching patients directory', error);
+      setPatientsError('Unable to load patient directory. The server may be waking up — please refresh the page in a moment.');
+      setPatients([]);
     } finally {
       setPatientsLoading(false);
     }
@@ -241,14 +245,29 @@ const DashboardPage = () => {
           <SearchBar onSearch={handleSearch} />
         </div>
 
-        <PatientTable
-          patients={patients}
-          currentPage={page}
-          totalPages={totalPages}
-          onPageChange={handlePageChange}
-          onDeletePatient={handleDeletePatient}
-          loading={patientsLoading}
-        />
+        {patientsError ? (
+          <div style={{ textAlign: 'center', padding: '2rem', color: 'var(--neutral-slate-medium)' }}>
+            <span style={{ fontSize: '2rem' }}>⚠️</span>
+            <p style={{ marginTop: '0.5rem' }}>{patientsError}</p>
+            <button
+              onClick={() => fetchPatients(searchQuery, page)}
+              style={{ marginTop: '1rem', padding: '0.5rem 1.5rem', cursor: 'pointer',
+                background: 'var(--primary-teal-medium)', color: '#fff',
+                border: 'none', borderRadius: '6px', fontSize: '0.9rem' }}
+            >
+              Retry
+            </button>
+          </div>
+        ) : (
+          <PatientTable
+            patients={patients}
+            currentPage={page}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+            onDeletePatient={handleDeletePatient}
+            loading={patientsLoading}
+          />
+        )}
       </section>
     </div>
   );
