@@ -116,7 +116,19 @@ const PatientDetailPage = () => {
       link.click();
       document.body.removeChild(link);
     } catch (err) {
-      alert('Failed to generate clinical PDF report. Please try again.');
+      console.error('PDF Generation Error:', err);
+      // Attempt to parse blob error if backend sent a JSON error inside the blob
+      if (err.response && err.response.data && err.response.data instanceof Blob) {
+        const text = await err.response.data.text();
+        try {
+          const jsonError = JSON.parse(text);
+          alert(`Failed to generate report: ${jsonError.message || jsonError.error || 'Server error'}`);
+          return;
+        } catch (e) {
+          // not json
+        }
+      }
+      alert('Failed to generate clinical PDF report. Ensure the backend has finished deploying the font updates.');
     } finally {
       setPdfGenerating(false);
     }
