@@ -8,12 +8,17 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   const checkSession = async () => {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
     try {
-      const response = await apiClient.get('/doctors/auth/me');
+      const response = await apiClient.get('/doctors/auth/me', {
+        signal: controller.signal,
+      });
       setUser(response.data);
     } catch (error) {
       setUser(null);
     } finally {
+      clearTimeout(timeoutId);
       setLoading(false);
     }
   };
