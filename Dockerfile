@@ -28,4 +28,4 @@ EXPOSE 8080
 
 ENV SPRING_PROFILES_ACTIVE=prod
 
-ENTRYPOINT ["java", "-Duser.timezone=Asia/Kolkata", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-Djava.net.preferIPv4Stack=true", "-Duser.timezone=Asia/Kolkata", "-jar", "app.jar"]
